@@ -31,6 +31,10 @@ public class Kolac implements DomainEntity{
 
     public Kolac() {
     }
+    
+    public Kolac(Long id) {
+        this.id = id;
+    }
 
     public Kolac(Long id, String naziv, String opis, Double cenaPoKomadu, String imageUrl) {
         this.id = id;

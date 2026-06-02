@@ -27,6 +27,11 @@ public class Mesto implements DomainEntity{
 
     public Mesto() {
     }
+    
+    public Mesto(Long idMesto) {
+        this.idMesto = idMesto;
+        
+    }
 
     public Mesto(Long idMesto, String naziv) {
         this.idMesto = idMesto;

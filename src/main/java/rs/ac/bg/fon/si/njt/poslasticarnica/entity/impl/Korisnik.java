@@ -38,6 +38,10 @@ public class Korisnik implements Dto{
     public Korisnik() {
     }
 
+    public Korisnik(Long idKorisnik) {
+        this.idKorisnik = idKorisnik;
+    }
+    
     public Korisnik(Long idKorisnik, String ime, String prezime, String brojTelefona, String email, Mesto mesto) {
         this.idKorisnik = idKorisnik;
         this.ime = ime;

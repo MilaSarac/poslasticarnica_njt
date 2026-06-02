@@ -30,6 +30,10 @@ public class Radnik implements DomainEntity{
 
     public Radnik() {
     }
+    
+    public Radnik(Long idRadnik) {
+        this.idRadnik = idRadnik;
+    }
 
     public Radnik(Long idRadnik, String ime, String prezime, String username, String password) {
         this.idRadnik = idRadnik;
