@@ -7,6 +7,7 @@ package rs.ac.bg.fon.si.njt.poslasticarnica.mapper.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
 import rs.ac.bg.fon.si.njt.poslasticarnica.dto.impl.PorudzbinaDto;
 import rs.ac.bg.fon.si.njt.poslasticarnica.dto.impl.StavkaPorudzbineDto;
 import rs.ac.bg.fon.si.njt.poslasticarnica.entity.impl.Korisnik;
@@ -19,6 +20,8 @@ import rs.ac.bg.fon.si.njt.poslasticarnica.mapper.DtoEntityMapper;
  *
  * @author Mila
  */
+
+@Component
 public class PorudzbinaMapper implements DtoEntityMapper<PorudzbinaDto, Porudzbina> {
     
     private final StavkaPorudzbineMapper stavkaMapper;

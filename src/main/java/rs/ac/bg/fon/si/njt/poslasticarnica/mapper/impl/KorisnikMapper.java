@@ -4,6 +4,7 @@
  */
 package rs.ac.bg.fon.si.njt.poslasticarnica.mapper.impl;
 
+import org.springframework.stereotype.Component;
 import rs.ac.bg.fon.si.njt.poslasticarnica.dto.impl.KorisnikDto;
 import rs.ac.bg.fon.si.njt.poslasticarnica.entity.impl.Korisnik;
 import rs.ac.bg.fon.si.njt.poslasticarnica.entity.impl.Mesto;
@@ -13,6 +14,8 @@ import rs.ac.bg.fon.si.njt.poslasticarnica.mapper.DtoEntityMapper;
  *
  * @author Mila
  */
+
+@Component
 public class KorisnikMapper implements DtoEntityMapper<KorisnikDto, Korisnik> {
 
     @Override
