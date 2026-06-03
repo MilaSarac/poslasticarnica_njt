@@ -8,6 +8,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.List;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import rs.ac.bg.fon.si.njt.poslasticarnica.entity.impl.Korisnik;
 import rs.ac.bg.fon.si.njt.poslasticarnica.repository.MyAppRepository;
 
@@ -39,6 +40,7 @@ public class KorisnikRepository implements MyAppRepository<Korisnik, Long> {
     }
 
     @Override
+    @Transactional
     public void save(Korisnik entity) {
         if(entity.getIdKorisnik()== null){
             entityManager.persist(entity);
@@ -48,6 +50,7 @@ public class KorisnikRepository implements MyAppRepository<Korisnik, Long> {
     }
 
     @Override
+    @Transactional
     public void deleteById(Long id) {
         Korisnik korisnik = entityManager.find(Korisnik.class, id);
         if(korisnik != null){
