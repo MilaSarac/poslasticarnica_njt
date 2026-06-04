@@ -32,6 +32,7 @@ public class PorudzbinaMapper implements DtoEntityMapper<PorudzbinaDto, Porudzbi
 
     @Override
     public PorudzbinaDto toDto(Porudzbina e) {
+        if (e == null) return null; 
         
         Long radnikId = e.getRadnik() != null ? e.getRadnik().getIdRadnik() : null;
         Long korisnikId = e.getKorisnik()!= null ? e.getKorisnik().getIdKorisnik(): null;
@@ -44,17 +45,21 @@ public class PorudzbinaMapper implements DtoEntityMapper<PorudzbinaDto, Porudzbi
                     .collect(Collectors.toList());
         }
         
-        return new PorudzbinaDto(
-                e.getId(), 
-                e.getDatumKreiranja(), 
-                e.getUkupanIznos(), 
-                korisnikId, 
-                radnikId, 
-                stavke);
+        PorudzbinaDto dto = new PorudzbinaDto();
+        dto.setId(e.getId());
+        dto.setDatumKreiranja(e.getDatumKreiranja());
+        dto.setUkupanIznos(e.getUkupanIznos());
+        dto.setKorisnikId(korisnikId);
+        dto.setRadnikId(radnikId);
+        dto.setStavkePorudzbine(stavke);
+        
+        return dto;
     }
 
     @Override
     public Porudzbina toEntity(PorudzbinaDto dto) {
+        
+        if (dto == null) return null;
         
         Radnik radnik = dto.getRadnikId() != null ? 
                 new Radnik(dto.getRadnikId()) : null;
@@ -73,13 +78,15 @@ public class PorudzbinaMapper implements DtoEntityMapper<PorudzbinaDto, Porudzbi
             t.getStavkePorudzbine().forEach(d -> o.addItem(itemMapper.toEntity(d)));
         }*/
         
-        return new Porudzbina(
-                dto.getId(), 
-                dto.getDatumKreiranja(), 
-                dto.getUkupanIznos(), 
-                korisnik, 
-                radnik, 
-                stavke);
+        Porudzbina p = new Porudzbina();
+        p.setId(dto.getId());
+        p.setDatumKreiranja(dto.getDatumKreiranja());
+        p.setUkupanIznos(dto.getUkupanIznos());
+        p.setKorisnik(korisnik);
+        p.setRadnik(radnik);
+        p.setStavkePorudzbine(stavke);
+        
+        return p;
     }
     
 }

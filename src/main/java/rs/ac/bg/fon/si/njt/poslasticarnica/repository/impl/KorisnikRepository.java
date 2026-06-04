@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import rs.ac.bg.fon.si.njt.poslasticarnica.entity.impl.Korisnik;
 import rs.ac.bg.fon.si.njt.poslasticarnica.repository.MyAppRepository;
+import java.util.Optional;
 
 /**
  *
@@ -58,4 +59,32 @@ public class KorisnikRepository implements MyAppRepository<Korisnik, Long> {
         }
     }
     
+    //Dodatne metode
+    
+    /*public Korisnik findByUsername(String username){
+        List<Korisnik> list = entityManager.createQuery("SELECT k FROM Korisnik k WHERE k.username = :un", Korisnik.class)
+                .setParameter("un", username).getResultList();
+        return list.isEmpty() ? null : list.get(0);
+    }*/
+    
+    public Optional<Korisnik> findByUsername(String username) {
+        List<Korisnik> list = entityManager.createQuery(
+                "SELECT k FROM Korisnik k WHERE k.username = :un", Korisnik.class)
+                .setParameter("un", username)
+                .getResultList();
+
+        return list.isEmpty() ? Optional.empty() : Optional.of(list.get(0));
+    }
+    
+    public boolean existsByUsername(String username){
+        Long c = entityManager.createQuery("SELECT COUNT(k) FROM Korisnik k WHERE k.username = :un", Long.class)
+                .setParameter("un", username).getSingleResult();
+        return c > 0;
+    }
+    
+    public boolean existsByEmail(String email){
+        Long c = entityManager.createQuery("SELECT COUNT(k) FROM Korisnik k WHERE k.email = :em", Long.class)
+                .setParameter("em", email).getSingleResult();
+        return c > 0;
+    }
 }

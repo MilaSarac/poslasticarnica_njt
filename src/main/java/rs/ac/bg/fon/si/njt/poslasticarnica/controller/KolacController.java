@@ -6,9 +6,11 @@ package rs.ac.bg.fon.si.njt.poslasticarnica.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +28,7 @@ import rs.ac.bg.fon.si.njt.poslasticarnica.service.KolacService;
  * @author Mila
  */
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/kolac")
 public class KolacController {
@@ -41,6 +44,21 @@ public class KolacController {
     public ResponseEntity<List<KolacDto>> getAll(){
         return new ResponseEntity<>(kolacService.findAll(),
                 HttpStatus.OK);
+    }
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<KolacDto> getById(
+        @NotNull(message = "Should not be null or empty.")
+        @PathVariable(value = "id") Long id) {
+        //prima parametar Long id koji ima anotaciju da ne sme da bude null i da ce se taj parametar
+        //zvati id, zapravo je to iz naseg linka taj id
+        try {
+            return new ResponseEntity<>(kolacService.findById(id),
+                HttpStatus.OK);
+        } catch (Exception ex){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
+                    "KolacController exception: "+ex.getMessage());
+        }
     }
     
     @PostMapping

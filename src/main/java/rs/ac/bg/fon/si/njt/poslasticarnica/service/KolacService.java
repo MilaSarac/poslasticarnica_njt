@@ -36,6 +36,10 @@ public class KolacService {
                 .map(kolacMapper::toDto) 
                 .collect(Collectors.toList()); 
     }
+    
+    public KolacDto findById(Long id) throws Exception{
+        return kolacMapper.toDto(kolacRepository.findById(id));
+    }
 
     public KolacDto create(KolacDto kolacDto) {
         Kolac kolac = kolacMapper.toEntity(kolacDto);

@@ -7,6 +7,7 @@ package rs.ac.bg.fon.si.njt.poslasticarnica.service;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import rs.ac.bg.fon.si.njt.poslasticarnica.dto.impl.KorisnikDto;
 import rs.ac.bg.fon.si.njt.poslasticarnica.entity.impl.Korisnik;
@@ -21,13 +22,29 @@ import rs.ac.bg.fon.si.njt.poslasticarnica.repository.impl.KorisnikRepository;
 @Service
 public class KorisnikService {
     
-    private final KorisnikRepository korisnikRepository;
+     private final KorisnikRepository korisnikRepository;
     private final KorisnikMapper korisnikMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public KorisnikService(KorisnikRepository korisnikRepository, KorisnikMapper korisnikMapper) {
+    public KorisnikService(KorisnikRepository korisnikRepository, 
+                           KorisnikMapper korisnikMapper, 
+                           PasswordEncoder passwordEncoder) {
         this.korisnikRepository = korisnikRepository;
         this.korisnikMapper = korisnikMapper;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    public KorisnikDto create(KorisnikDto korisnikDto) {
+        Korisnik korisnik = korisnikMapper.toEntity(korisnikDto);
+        
+        // Admin dodaje korisnika, lozinka mora da se enkriptuje
+        if (korisnikDto.getPassword() != null) {
+            korisnik.setPassword(passwordEncoder.encode(korisnikDto.getPassword()));
+        }
+        
+        korisnikRepository.save(korisnik);
+        return korisnikMapper.toDto(korisnik);
     }
     
     public List<KorisnikDto> findAll(){
@@ -37,11 +54,11 @@ public class KorisnikService {
                 .collect(Collectors.toList());
     }
 
-    public KorisnikDto create(KorisnikDto korisnikDto) {
+    /*public KorisnikDto create(KorisnikDto korisnikDto) {
         Korisnik korisnik = korisnikMapper.toEntity(korisnikDto);
         korisnikRepository.save(korisnik);
         return korisnikMapper.toDto(korisnik);
-    }
+    }*/
     
     public void deleteById(Long id) {
         korisnikRepository.deleteById(id);

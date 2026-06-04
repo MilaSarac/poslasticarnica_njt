@@ -50,10 +50,10 @@
         
         <!-- Spring Security -->
         <!-- dependency za autorizaciju, kaze da su sve rute zasticene u aplikaciji, pa cemo dodati klasu jednu da disable-ujemo zbog slanja rute kod postmana-->
-      <!--  <dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>  -->
+        </dependency>
         
         <!-- JWT (noviji 0.11.x: podeljen na 3 artefakta) -->
         <dependency>

@@ -38,6 +38,10 @@ public class StavkaPorudzbineService {
     }
     
     public StavkaPorudzbineDto create(StavkaPorudzbineDto spDto) {
+        // Automatsko računanje iznosa: iznos = cena * kolicina
+        if (spDto.getCena() != null && spDto.getKolicina() != null) {
+            spDto.setIznos(spDto.getCena() * spDto.getKolicina());
+        }
         StavkaPorudzbine sp = spMapper.toEntity(spDto);
         spRepository.save(sp);
         return spMapper.toDto(sp);

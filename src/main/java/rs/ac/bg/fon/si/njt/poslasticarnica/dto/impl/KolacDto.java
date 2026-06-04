@@ -10,6 +10,7 @@ import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.URL;
 import rs.ac.bg.fon.si.njt.poslasticarnica.dto.Dto;
+import rs.ac.bg.fon.si.njt.poslasticarnica.entity.impl.VrstaKolaca;
 
 /**
  *
@@ -30,17 +31,20 @@ public class KolacDto implements Dto{
     private Double cenaPoKomadu;
     @URL(message = "Image URL must be valid.")
     private String imageUrl; //cuva se kao link
-    //vrsta
+    
+    @NotNull(message = "Type of cake is required.")
+    private VrstaKolaca vrsta;
 
     public KolacDto() {
     }
 
-    public KolacDto(Long id, String naziv, String opis, Double cenaPoKomadu, String imageUrl) {
+    public KolacDto(Long id, String naziv, String opis, Double cenaPoKomadu, String imageUrl, VrstaKolaca vrsta) {
         this.id = id;
         this.naziv = naziv;
         this.opis = opis;
         this.cenaPoKomadu = cenaPoKomadu;
         this.imageUrl = imageUrl;
+        this.vrsta = vrsta;
     }
 
     public Long getId() {
@@ -81,6 +85,14 @@ public class KolacDto implements Dto{
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public VrstaKolaca getVrsta() {
+        return vrsta;
+    }
+
+    public void setVrsta(VrstaKolaca vrsta) {
+        this.vrsta = vrsta;
     }
     
     

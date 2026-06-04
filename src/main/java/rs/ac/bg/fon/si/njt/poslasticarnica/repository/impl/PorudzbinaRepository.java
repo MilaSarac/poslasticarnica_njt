@@ -54,7 +54,7 @@ public class PorudzbinaRepository implements MyAppRepository<Porudzbina, Long> {
     public void deleteById(Long id) {
         Porudzbina porudzbina = entityManager.find(Porudzbina.class, id);
         if(porudzbina != null){
-            entityManager.remove(porudzbina);
+            entityManager.remove(porudzbina); //orphanRemoval brise i stavke
         }
     }
     

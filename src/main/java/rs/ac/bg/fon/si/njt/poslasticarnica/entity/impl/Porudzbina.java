@@ -14,6 +14,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import java.util.Date;
 import java.util.List;
 import rs.ac.bg.fon.si.njt.poslasticarnica.entity.DomainEntity;
@@ -30,6 +32,7 @@ public class Porudzbina implements DomainEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date datumKreiranja;
     private Double ukupanIznos;
 
@@ -43,7 +46,8 @@ public class Porudzbina implements DomainEntity{
     
     //ovo mappedBy govori da se inofrmacije o tome kojoj porudzbini pripada koja stavka 
     //nalaze u klasi StavkaPorudzbine u polju porudzbina
-    @OneToMany(mappedBy = "porudzbina", cascade = CascadeType.ALL, fetch =FetchType.EAGER)
+    //orphanPremoval kada se obrise porudzbina brise se i stavka jer ne pripada vise porudzbini
+    @OneToMany(mappedBy = "porudzbina", cascade = CascadeType.ALL, fetch =FetchType.EAGER, orphanRemoval = true)
     private List<StavkaPorudzbine> stavkePorudzbine;
 
     public Porudzbina() {
@@ -61,7 +65,18 @@ public class Porudzbina implements DomainEntity{
         this.radnik = radnik;
         this.stavkePorudzbine = stavkePorudzbine;
     }
-
+    
+    //Zbog polja Porudzbina u StavkaPorudzbine
+    public void addStavka (StavkaPorudzbine sp){
+        sp.setPorudzbina(this);
+        this.stavkePorudzbine.add(sp);
+    }
+    
+    public void removeStavka(StavkaPorudzbine sp){
+        sp.setPorudzbina(null);
+        this.stavkePorudzbine.remove(sp);
+    }
+    
     public Long getId() {
         return id;
     }

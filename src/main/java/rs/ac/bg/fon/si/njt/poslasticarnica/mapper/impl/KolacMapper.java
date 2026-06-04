@@ -19,17 +19,36 @@ public class KolacMapper implements DtoEntityMapper<KolacDto, Kolac> {
 
     @Override
     public KolacDto toDto(Kolac e) {
-        return new KolacDto(e.getId(), e.getNaziv(), e.getOpis(), e.getCenaPoKomadu(), e.getImageUrl());
+        // PROVERA: Ako je entitet null, vrati null umesto da pozivaš getere
+        if (e == null) {
+            return null;
+        }
+        
+        return new KolacDto(
+                e.getId(), 
+                e.getNaziv(), 
+                e.getOpis(), 
+                e.getCenaPoKomadu(), 
+                e.getImageUrl(), 
+                e.getVrsta()
+        );
     }
 
     @Override
     public Kolac toEntity(KolacDto dto) {
+        // PROVERA: Ako je DTO null, vrati null
+        if (dto == null) {
+            return null;
+        }
+
         return new Kolac(
                 dto.getId(), 
                 dto.getNaziv(), 
                 dto.getOpis(), 
                 dto.getCenaPoKomadu(), 
-                dto.getImageUrl());
+                dto.getImageUrl(), 
+                dto.getVrsta()
+        );
     }
     
 }

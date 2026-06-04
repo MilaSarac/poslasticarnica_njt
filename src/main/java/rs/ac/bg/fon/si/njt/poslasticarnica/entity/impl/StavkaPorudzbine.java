@@ -48,7 +48,7 @@ public class StavkaPorudzbine implements DomainEntity{
         this.porudzbina = porudzbina;
         this.kolac = kolac;
     }
-
+    
     public Porudzbina getPorudzbina() {
         return porudzbina;
     }

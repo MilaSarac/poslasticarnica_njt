@@ -31,6 +31,9 @@ public class Korisnik implements Dto{
     private String email;
     //status
     
+    private String username;
+    private String password;
+    
     @ManyToOne
     @JoinColumn(name = "mesto_id")
     private Mesto mesto;
@@ -41,14 +44,32 @@ public class Korisnik implements Dto{
     public Korisnik(Long idKorisnik) {
         this.idKorisnik = idKorisnik;
     }
-    
-    public Korisnik(Long idKorisnik, String ime, String prezime, String brojTelefona, String email, Mesto mesto) {
+
+    public Korisnik(Long idKorisnik, String ime, String prezime, String brojTelefona, String email, String username, String password, Mesto mesto) {
         this.idKorisnik = idKorisnik;
         this.ime = ime;
         this.prezime = prezime;
         this.brojTelefona = brojTelefona;
         this.email = email;
+        this.username = username;
+        this.password = password;
         this.mesto = mesto;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getIdKorisnik() {

@@ -19,17 +19,31 @@ public class RadnikMapper implements DtoEntityMapper<RadnikDto, Radnik> {
 
     @Override
     public RadnikDto toDto(Radnik e) {
-        return new RadnikDto(e.getIdRadnik(), e.getIme(), e.getPrezime(), e.getUsername(), e.getPassword());
+        if (e == null) return null;
+        // Kreiramo DTO objekat i popunjavamo ga seterima
+        RadnikDto dto = new RadnikDto();
+        dto.setIdRadnik(e.getIdRadnik());
+        dto.setIme(e.getIme());
+        dto.setPrezime(e.getPrezime());
+        dto.setUsername(e.getUsername());
+        // Lozinka se NIKADA ne šalje u DTO
+
+        return dto;
     }
 
     @Override
     public Radnik toEntity(RadnikDto dto) {
-        return new Radnik(
-                dto.getIdRadnik(), 
-                dto.getIme(), 
-                dto.getPrezime(), 
-                dto.getUsername(), 
-                dto.getPassword());
+        if (dto == null) return null;
+
+        // Kreiramo ENITET objekat i popunjavamo ga seterima
+        Radnik entity = new Radnik(); // Poziva se default konstruktor
+        entity.setIdRadnik(dto.getIdRadnik());
+        entity.setIme(dto.getIme());
+        entity.setPrezime(dto.getPrezime());
+        entity.setUsername(dto.getUsername());
+        // Lozinka se NE setuje ovde, jer ona dolazi iz servisa nakon enkripcije
+
+        return entity;
     }
     
 }

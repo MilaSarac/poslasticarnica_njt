@@ -5,6 +5,8 @@
 package rs.ac.bg.fon.si.njt.poslasticarnica.entity.impl;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,7 +29,9 @@ public class Kolac implements DomainEntity{
     private String opis;
     private Double cenaPoKomadu;
     private String imageUrl;
-    //vrsta
+    
+    @Enumerated(EnumType.STRING)
+    private VrstaKolaca vrsta;
 
     public Kolac() {
     }
@@ -36,12 +40,13 @@ public class Kolac implements DomainEntity{
         this.id = id;
     }
 
-    public Kolac(Long id, String naziv, String opis, Double cenaPoKomadu, String imageUrl) {
+    public Kolac(Long id, String naziv, String opis, Double cenaPoKomadu, String imageUrl, VrstaKolaca vrsta) {
         this.id = id;
         this.naziv = naziv;
         this.opis = opis;
         this.cenaPoKomadu = cenaPoKomadu;
         this.imageUrl = imageUrl;
+        this.vrsta = vrsta;
     }
 
     public Long getId() {
@@ -83,6 +88,13 @@ public class Kolac implements DomainEntity{
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
-    
+
+    public VrstaKolaca getVrsta() {
+        return vrsta;
+    }
+
+    public void setVrsta(VrstaKolaca vrsta) {
+        this.vrsta = vrsta;
+    }
     
 }
