@@ -1,0 +1,172 @@
+:root {
+  --zz-bg: #e2efda; /* Svetlo zelena pozadina */
+  --zz-dark-green: #67927a; /* Zelena sa dugmeta */
+  --zz-text-dark: #3d4e41; /* Tamno siva/zelena za tekst */
+  --zz-white: #ffffff;
+}
+
+.zz-page-wrapper {
+  background-color: var(--zz-bg);
+  min-height: 100vh;
+  padding: 40px 5%;
+  font-family: "Montserrat", sans-serif; /* Ili tvoj osnovni sans-serif */
+}
+
+/* Naslov u Serif stilu kao na slici */
+.zz-main-title {
+  font-family: "Playfair Display", serif; /* Elegantni font za naslov */
+  font-size: 2.8rem;
+  color: var(--zz-text-dark);
+  margin: 0;
+}
+
+.zz-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* Dugme "DODAJ" - stil sa slike */
+.zz-btn-add {
+  background-color: var(--zz-dark-green);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 40px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.zz-btn-add:hover {
+  transform: scale(1.05);
+  filter: brightness(0.9);
+}
+
+/* Pretraga - stil sa slike */
+.zz-search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.zz-search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px 25px;
+  border-radius: 10px;
+  border: none;
+  font-style: italic;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Forma Kartica */
+.zz-card-form {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.zz-input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.zz-card-form input,
+.zz-card-form select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fdfdfd;
+}
+
+.zz-form-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.zz-btn-submit {
+  background: var(--zz-dark-green);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 5px;
+}
+.zz-btn-cancel {
+  background: #ccc;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 5px;
+}
+
+/* Tabela */
+.zz-table-container {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.zz-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.zz-table th {
+  text-align: left;
+  padding: 15px;
+  border-bottom: 2px solid var(--zz-dark-green);
+  color: var(--zz-text-dark);
+}
+
+.zz-table td {
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Linkovi za akcije umesto grubih dugmića */
+.zz-link-edit {
+  color: #f39c12;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 15px;
+}
+.zz-link-delete {
+  color: #e74c3c;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* RESPONZIVNOST */
+@media (max-width: 768px) {
+  .zz-header-section {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .zz-table thead {
+    display: none;
+  }
+  .zz-table tr {
+    display: block;
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .zz-table td {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+  }
+  .zz-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: var(--zz-dark-green);
+  }
+}

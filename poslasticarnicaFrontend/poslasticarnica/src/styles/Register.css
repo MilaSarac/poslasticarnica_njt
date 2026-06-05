@@ -1,0 +1,54 @@
+/* src/styles/Register.css */
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+    url("https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&q=80&w=1974");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.register-card {
+  background: white;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  width: 100%;
+  max-width: 650px; /* Šira karta za više polja */
+}
+
+.register-card h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #2c2c2c;
+}
+
+.register-card label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #7d9475;
+  margin-bottom: 5px;
+}
+
+.btn-register {
+  background-color: #2c3338;
+  color: white;
+  border: none;
+  padding: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.btn-register:hover {
+  background-color: #7d9475;
+  transform: translateY(-2px);
+}

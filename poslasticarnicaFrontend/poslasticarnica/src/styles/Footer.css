@@ -1,0 +1,67 @@
+/* ==========================================================================
+   Glavni stil Footera (Usklađeno sa šumsko zelenom bojom tvoje aplikacije)
+   ========================================================================== */
+.footer {
+  background-color: #7d9475; /* Tvoja prepoznatljiva šumsko zelena boja */
+  color: #ffffff;
+  padding: 50px 0 20px 0;
+  margin-top: auto; /* Automatski gura footer na dno ako ima malo sadržaja */
+  width: 100%;
+}
+
+.footer-container {
+  width: 85%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Prva kolona malo šira od druge */
+  gap: 100px; /* Veći razmak između dve sekcije */
+}
+
+/* ==========================================================================
+   Tipografija (Usklađeno sa "Playfair Display" i tvojim stilovima)
+   ========================================================================== */
+.footer-section h3 {
+  font-family: "Playfair Display", serif; /* Tvoj prepoznatljivi font */
+  color: #ffffff;
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.footer-section h4 {
+  font-family: "Playfair Display", serif; /* Tvoj prepoznatljivi font */
+  color: #ffffff;
+  font-size: 19px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #f4f7f2; /* Nežna, ultra svetlo-zelenkasto bela boja za bolju čitljivost */
+  margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   Donji deo footera (Copyright sekcija)
+   ========================================================================== */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15); /* Prefinjena, prozirna linija */
+  margin-top: 40px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #e2ebe0; /* Suptilniji tekst za autorska prava */
+}
+
+/* --- RESPONZIVNOST (Mobilni uređaji) --- */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    text-align: center; /* Sve se lepo centrira na telefonima */
+  }
+}

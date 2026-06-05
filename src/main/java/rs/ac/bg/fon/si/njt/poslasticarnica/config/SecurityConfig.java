@@ -52,6 +52,7 @@ public class SecurityConfig {
                 // Auth endpoints (Login i Register) - dozvoljeno svima
                 .requestMatchers("/api/auth/**").permitAll()
                 
+                .requestMatchers("/api/porudzbina","/api/porudzbina/**").permitAll() 
                 // Ucitava mesta za registraciju
                 .requestMatchers(org.springframework.http.HttpMethod.GET, "/api/mesto/**").permitAll()
                 

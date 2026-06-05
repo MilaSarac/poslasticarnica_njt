@@ -4,7 +4,9 @@
  */
 package rs.ac.bg.fon.si.njt.poslasticarnica.entity.impl;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,11 +31,11 @@ public class StavkaPorudzbine implements DomainEntity{
     private Double cena;
     private Long kolicina;
 
-    @ManyToOne
-    @JoinColumn(name = "porudzbina_id")
+    @ManyToOne(optional =false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "porudzbina_id", nullable=false)
     private Porudzbina porudzbina;
     
-    @ManyToOne
+    @ManyToOne(optional =false, fetch = FetchType.LAZY)
     @JoinColumn(name = "kolac_id")
     private Kolac kolac;
 

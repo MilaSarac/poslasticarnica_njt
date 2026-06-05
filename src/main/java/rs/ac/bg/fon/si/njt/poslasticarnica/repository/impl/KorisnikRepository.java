@@ -24,6 +24,8 @@ public class KorisnikRepository implements MyAppRepository<Korisnik, Long> {
     @PersistenceContext
     private EntityManager entityManager;
     
+    //U JPQL-u (Java Persistence Query Language) ne koristi se naziv tabele
+    //iz baze, već naziv entiteta.
     @Override
     public List<Korisnik> findAll() {
         return entityManager.createQuery(

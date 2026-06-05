@@ -17,10 +17,7 @@ import jakarta.validation.constraints.Positive;
 public class StavkaPorudzbineDto {
     
     private Long rb;
-    @NotNull(message = "Ukupan iznos je obavezan.")
-    @Positive(message = "Ukupan iznos mora biti veći od nule.")
     private Double iznos;
-    @NotNull(message = "Cena je obavezna.")
     private Double cena;
     @Min(value=1,message = "Kolicina mora biti bar 1")
     private Long kolicina;

@@ -19,17 +19,12 @@ import rs.ac.bg.fon.si.njt.poslasticarnica.dto.Dto;
 public class PorudzbinaDto implements Dto{
     
     private Long id;
-    @NotNull(message = "Datum je obavezan")
     private Date datumKreiranja;
-    @NotNull(message = "Price is required.")
-    @Positive(message = "Price must be greater than zero.")
     private Double ukupanIznos;
     @NotNull(message = "Porudzbina mora imati klijenta")
     private Long korisnikId;
     @NotNull(message = "Porudzbina mora imati radnika")
     private Long radnikId;
-    @Valid
-    @NotEmpty(message = "racun mora imati bar jednu stavku")
     private List<StavkaPorudzbineDto> stavkePorudzbine;
 
     public PorudzbinaDto() {

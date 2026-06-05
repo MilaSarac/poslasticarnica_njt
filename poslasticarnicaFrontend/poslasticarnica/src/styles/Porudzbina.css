@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Glavni kontejner (Usklađeno sa .kolaci-page)
+   ========================================================================== */
+.naruci-page {
+  padding: 40px 0;
+  background-color: #def2c8; /* Tvoja pastelno zelena pozadina */
+  min-height: 100vh;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   Kartice proizvoda u korpi (Usklađeno sa .kolac-card)
+   ========================================================================== */
+.item-card {
+  border-radius: 12px;
+  background-color: white;
+  border: none;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.kolac-naziv {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 12px;
+}
+
+.kolac-detalji {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.kolac-detalji span {
+  font-weight: 600;
+}
+
+.kolac-cena-ukupno {
+  font-size: 15px;
+  font-weight: 800;
+  color: #7d9475; /* Šumsko zelena za cene */
+}
+
+/* Finalni panel sa ukupnim iznosom */
+.cart-card {
+  border-radius: 20px;
+  background: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.cart-card h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #2c2c2c;
+}
+
+.cart-card h3 span {
+  color: #7d9475;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   Dugmići (Usklađeni sa tvojim .btn-buy, .btn-delete i .btn-add-new)
+   ========================================================================== */
+.btn-success {
+  background-color: #abc88c !important; /* Tvoja glavna zelena */
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 50px; /* Pill oblik */
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border-color: #5b9178 !important;
+  box-shadow: 0 4px 15px rgba(125, 148, 117, 0.2) !important;
+}
+
+.btn-success:hover {
+  background-color: #5b9178; /* Menja se u tamniju zelenu na hover kao .btn-add-new */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(125, 148, 117, 0.3);
+  color: white;
+}
+
+/* Crveno dugme za uklanjanje stavke (Usklađeno sa .btn-delete) */
+.btn-delete-item {
+  background: #feebeb;
+  color: #d9534f;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-delete-item:hover {
+  background: #fcd7d7;
+  transform: translateY(-2px);
+}

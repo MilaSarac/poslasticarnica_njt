@@ -1,0 +1,291 @@
+.kolaci-page {
+  padding: 40px 0;
+
+  background-color: #def2c8;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+
+  font-weight: 700;
+
+  color: #2c2c2c;
+}
+
+.kolac-img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover; /* Slika će ispuniti prostor bez rastezanja */
+
+  transition: transform 0.5s ease;
+}
+
+.kolac-card:hover .kolac-img {
+  transform: scale(1.1);
+}
+
+.kolac-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.kolac-vrsta {
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  color: #7d9475;
+
+  font-weight: bold;
+
+  display: block;
+
+  margin-bottom: 5px;
+}
+
+.kolac-img-wrapper {
+  height: 160px;
+
+  width: 100%;
+
+  overflow: hidden;
+}
+
+.kolac-naziv {
+  font-family: "Playfair Display", serif;
+
+  font-size: 18px; /* Manji font */
+
+  font-weight: 700;
+
+  margin-bottom: 8px;
+}
+
+.kolac-card p.text-muted {
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  min-height: 35px; /* Da bi opisi bili ujednačeni */
+}
+
+.kolac-price {
+  font-size: 16px;
+
+  font-weight: 800;
+
+  color: #2c3338;
+}
+
+.btn-action {
+  padding: 6px 10px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.5px;
+}
+
+.kolac-card .card-body {
+  padding: 15px;
+}
+
+/* Ograničavamo maksimalnu širinu kartice da ne bi "bežala" na ogromnim ekranima */
+
+.kolac-card {
+  max-width: 280px;
+
+  margin: 0 auto;
+
+  border-radius: 10px;
+}
+
+/* Dugmići */
+
+.btn-action {
+  padding: 8px 15px;
+
+  border: none;
+
+  border-radius: 4px;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.btn-buy {
+  background: #7d9475;
+
+  color: white;
+}
+
+.btn-edit {
+  background: #f1f1f1;
+
+  color: #333;
+}
+
+.btn-delete {
+  background: #feebeb;
+
+  color: #d9534f;
+}
+
+.btn-add-new {
+  background-color: #5b9178;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 30px;
+
+  border-radius: 50px; /* Zaobljeno (Pill shape) */
+
+  font-weight: 700;
+
+  font-size: 13px;
+
+  letter-spacing: 2px; /* Razmak između slova */
+
+  text-transform: uppercase;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.btn-add-new:hover {
+  background-color: #7d9475; /* Menja u zelenu na hover */
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 6px 20px rgba(125, 148, 117, 0.3);
+
+  color: white;
+}
+
+/* Filter bar */
+
+.filter-bar {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.filter-btn {
+  background: white;
+
+  border: 1px solid #eee;
+
+  padding: 6px 20px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.filter-btn.active {
+  background: #7d9475;
+
+  color: white;
+}
+
+/*Search bar*/
+
+.search-container {
+  max-width: 400px; /* Smanjeno sa 600px */
+
+  margin: 0 auto 30px;
+
+  margin: 0 auto; /* Centriranje polja na sredinu stranice */
+}
+
+.search-input {
+  border-radius: 50px; /* Zaobljeno kao i glavno dugme */
+
+  padding: 12px 25px;
+
+  border: 2px solid #eee;
+
+  font-size: 14px;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.search-input:focus {
+  border-color: #7d9475;
+
+  box-shadow: 0 4px 15px rgba(125, 148, 117, 0.2);
+
+  outline: none;
+}
+
+/* Opciono: Lepši placeholder tekst */
+
+.search-input::placeholder {
+  color: #aaa;
+
+  font-style: italic;
+}
+
+/* --- RESPONZIVNOST (Mobilni uređaji) --- */
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px; /* Smanjujemo naslov da ne bi zauzeo pola ekrana */
+
+    margin-bottom: 10px;
+  }
+
+  .kolac-img-wrapper {
+    height: 180px; /* Nešto niža slika na mobilnom da bi se videlo više teksta */
+  }
+
+  .filter-bar {
+    gap: 8px; /* Manji razmak između filter dugmića */
+  }
+
+  .filter-btn {
+    padding: 6px 15px; /* Manji dugmići */
+
+    font-size: 11px;
+
+    flex: 1 1 auto; /* Dozvoljavamo im da se šire i popune red */
+
+    text-align: center;
+  }
+
+  .search-container {
+    max-width: 100%; /* Search bar ide od ivice do ivice */
+  }
+
+  .headerContainer h1 {
+    font-size: 45px; /* Smanjujemo i onaj veliki naslov sa Home ako ga tu koristiš */
+  }
+}
+
+/* --- Srednji ekrani (Tableti) --- */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .kolac-img-wrapper {
+    height: 200px;
+  }
+}

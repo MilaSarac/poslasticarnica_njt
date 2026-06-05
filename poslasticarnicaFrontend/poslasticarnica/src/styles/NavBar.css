@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Glavni stil navigacije
+   ========================================================================== */
+.custom-navbar {
+  background-color: #7d9475; /* Tvoja prepoznatljiva zelena */
+  padding: 15px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Brend / Logo deo */
+.navbar-brand-custom {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap; /* Sprečava prelamanje teksta brenda u dva reda */
+}
+
+.navbar-brand-custom span {
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.navbar-logo-img {
+  height: 42px;
+  margin-right: 12px;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* ==========================================================================
+   Glavni linkovi na sredini
+   ========================================================================== */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  padding-bottom: 5px;
+}
+
+.nav-links a:hover {
+  color: white !important;
+}
+
+/* ==========================================================================
+   Dugmići sa desne strane (Povećan razmak i odvojenost)
+   ========================================================================== */
+.nav-actions {
+  display: flex;
+  gap: 24px; /* Povećano sa 15px na 24px radi bolje odvojenosti dugmadi */
+  align-items: center;
+}
+
+.btn-nav-outline {
+  color: white;
+  border: 1.5px solid white;
+  padding: 8px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.btn-nav-fill {
+  background-color: #2c3338;
+  color: white;
+  padding: 9px 21px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.btn-nav-outline:hover,
+.btn-nav-fill:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+/* Korisnički deo kad je ulogovan */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-name {
+  color: white;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.btn-logout {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-logout:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   RESPONZIVNOST (Prilagođavanje za tablete i telefone)
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  /* Koristimo Bootstrap klasu .container da se transformiše u vertikalni prikaz */
+  .custom-navbar .container {
+    flex-direction: column !important;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .nav-links {
+    margin-top: 5px;
+    gap: 15px;
+    flex-wrap: wrap; /* Ako ima više linkova za radnika, prebaciće se u novi red */
+    justify-content: center;
+  }
+
+  .nav-actions {
+    margin-top: 5px;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ekstremno mali ekrani - skroz kompaktna forma */
+  .navbar-brand-custom {
+    font-size: 22px;
+  }
+
+  .navbar-logo-img {
+    height: 35px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-nav-outline,
+  .btn-nav-fill {
+    padding: 7px 15px;
+    font-size: 12px;
+    flex: 1; /* Šire se jednako na mobilnom telefonu */
+    text-align: center;
+  }
+
+  .nav-actions {
+    gap: 12px;
+    width: 100%;
+    padding: 0 10px;
+  }
+}

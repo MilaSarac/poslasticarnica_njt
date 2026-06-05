@@ -16,6 +16,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import rs.ac.bg.fon.si.njt.poslasticarnica.entity.DomainEntity;
@@ -47,8 +48,8 @@ public class Porudzbina implements DomainEntity{
     //ovo mappedBy govori da se inofrmacije o tome kojoj porudzbini pripada koja stavka 
     //nalaze u klasi StavkaPorudzbine u polju porudzbina
     //orphanPremoval kada se obrise porudzbina brise se i stavka jer ne pripada vise porudzbini
-    @OneToMany(mappedBy = "porudzbina", cascade = CascadeType.ALL, fetch =FetchType.EAGER, orphanRemoval = true)
-    private List<StavkaPorudzbine> stavkePorudzbine;
+    @OneToMany(mappedBy = "porudzbina", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StavkaPorudzbine> stavkePorudzbine = new ArrayList<>();
 
     public Porudzbina() {
     }

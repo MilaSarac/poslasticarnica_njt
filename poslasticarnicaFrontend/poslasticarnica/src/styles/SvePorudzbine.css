@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Glavni kontejner i stil stranice (Usklađeno sa .kolaci-page)
+   ========================================================================== */
+.sve-porudzbine-page {
+  padding: 40px 0;
+  background-color: #def2c8; /* Istovetna pastelno zelena pozadina */
+  min-height: 100vh;
+}
+
+.sve-porudzbine-page h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 5px;
+}
+
+.sve-porudzbine-page .text-muted {
+  font-size: 13px;
+  color: #7d9475 !important;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Stilizacija Tabele i Omotača (Zaobljeno i nežno)
+   ========================================================================== */
+.table-wrap {
+  background: white;
+  border-radius: 15px; /* Zaobljene ivice kao i tvoje kartice */
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Blaga, elegantna senka */
+  margin-top: 25px;
+  border: 1px solid rgba(125, 148, 117, 0.15);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #2c2c2c;
+  font-size: 15px;
+  padding: 14px;
+  border-bottom: 2px solid #def2c8; /* Granica u boji pozadine */
+}
+
+.table td {
+  padding: 14px;
+  font-size: 13px;
+  color: #444;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+/* Poravnanje iznosa udesno */
+.table .right {
+  text-align: right;
+  padding-right: 25px;
+}
+
+/* Zeleni naglasak za ukupnu cenu porudžbine */
+.fw-bold.text-success {
+  color: #7d9475 !important;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+/* ==========================================================================
+   Dugmići na stranici (Kopirani stilovi tvojih dugmića .btn-buy, .btn-delete)
+   ========================================================================== */
+.btn-pogledaj {
+  background: #7d9475; /* Tvoja prepoznatljiva zelena (.btn-buy) */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px; /* Pill-shape zaobljenost */
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(125, 148, 117, 0.2);
+}
+
+.btn-pogledaj:hover {
+  background: #5b9178; /* Tamnija zelena na hover (.btn-add-new) */
+  transform: translateY(-2px);
+}
+
+.btn-obrisi {
+  background: #feebeb; /* Tvoja .btn-delete boja */
+  color: #d9534f;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 8px;
+}
+
+.btn-obrisi:hover {
+  background: #fcd7d7;
+  transform: translateY(-2px);
+}
+
+/* Dugme za osvežavanje na vrhu */
+.btn-osvezi {
+  background: white;
+  border: 1px solid #7d9475;
+  color: #7d9475;
+  padding: 8px 25px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-osvezi:hover {
+  background: #7d9475;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Rasklapajući red sa stavkama (Kolačima) porudžbine
+   ========================================================================== */
+.items-row-container {
+  background-color: #fbfef7; /* Ultra svetlo-zelena nijansa za unutrašnji panel */
+  border-radius: 10px;
+  border: 1px dashed #7d9475;
+  padding: 15px 20px;
+  margin: 10px 0;
+}
+
+.items-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #2c2c2c;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Lista kolača */
+.items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.items-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.items-list li:last-child {
+  border-bottom: none;
+}
+
+.kolac-naziv-tabela {
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+.kolac-detalji-tabela {
+  font-size: 11px;
+  color: #7d9475;
+  font-weight: bold;
+}
+
+/* Poruka ako nema stavki */
+.items-prazno {
+  font-style: italic;
+  color: #999;
+  font-size: 12px;
+}
